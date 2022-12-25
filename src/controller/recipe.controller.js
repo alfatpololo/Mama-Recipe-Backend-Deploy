@@ -1,5 +1,6 @@
 const recipeModel = require('../model/recipe.model')
 const {success, failed} = require('../helper/response')
+const cloudinary = require('../helper/cloudinary')
 const recipeController = {
   // metod
   list: (req, res) => {
@@ -18,10 +19,10 @@ const recipeController = {
       res.json(err)
     })
   },
-  insert: (req, res) => {
+  insert: async (req, res) => {
     try {
       //image
-      const image = req.file.filename
+      const image = await cloudinary.uploader.upload(req.file.path);
       //tangkap data dari body
       const {title, ingredients} = req.body;
 
@@ -41,11 +42,9 @@ const recipeController = {
       failed(res, err.message, 'failed', 'internal server error');
   }
   },
-  update: (req, res) => {
-    
-
-
-    const image = req.file.filename
+  
+  update: async (req, res) => {
+    const image = await cloudinary.uploader.upload(req.file.path);
  
     const { title, ingredients } = req.body
     const id = req.params.id

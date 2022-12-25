@@ -3,13 +3,13 @@
 // deklare library
 
 const pg = require('pg')
-const {DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_NAME, PORT} = require('../helper/env')
+const {DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_NAME, DB_PORT} = require('../helper/env')
 const db = new pg.Pool({
   host: DB_HOSTNAME,
   user: DB_USERNAME,
   password: DB_PASSWORD,
   database: DB_NAME,
-  port: PORT
+  port: DB_PORT
 })
 
 // cek koneksi
