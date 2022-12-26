@@ -24,12 +24,12 @@ const recipeModel = {
     })
   },
   // router insert
-  insert: ({title, ingredients, image}) => {
+  insert: ({title, ingredients, image, image_pub_id, image_url, image_secure_url}) => {
     return new Promise((resolve, reject) => {
       db.query(`
-            INSERT INTO recipes (title, ingredients, image)
+            INSERT INTO recipes (title, ingredients, image, image_pub_id, image_url, image_secure_url)
             VALUES
-            ('${title}', '${ingredients}', '${image}')
+            ('${title}', '${ingredients}', '${image}', '${image_pub_id}', '${image_url}', '${image_secure_url}')
             `, (err, res) => {
         if (err) {
           reject(err)

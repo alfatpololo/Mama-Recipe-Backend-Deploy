@@ -29,7 +29,10 @@ const recipeController = {
           const data = {
               title,
               ingredients,
-              image
+              image,
+              image_pub_id: image.public_id,
+              image_url: image.url,
+              image_secure_url: image.secure_url
           }
 
           recipeModel.insert(data).then((result) => {
