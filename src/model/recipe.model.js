@@ -39,24 +39,51 @@ const recipeModel = {
     })
   },
   // router edit/update
-  update: (id, title, ingredients, image) => {
-    return new Promise ((resolve, reject) => {
-      db.query(`UPDATE recipes SET
-        title = COALESCE ($1, title),
-        ingredients = COALESCE ($2, ingredients),
-        image = COALESCE ($3, image)
-        WHERE id = $4
-        `,
-        [title, ingredients, image, id]
+//   update: (id, title, ingredients, image) => {
+//     return new Promise ((resolve, reject) => {
+//       db.query(`UPDATE recipes SET
+//         title = COALESCE ($1, title),
+//         ingredients = COALESCE ($2, ingredients),
+//         image = COALESCE ($3, image),
+//         image_pub_id = COALESCE ($4, image_pub_id),
+//         image_url = COALESCE ($5, image_url),
+//         image_secure_url = COALESCE ($6, image_secure_url)
+//         WHERE id = $7
+//         `,
+//         [title, ingredients, image, id]
       
-            , (err, res) => {
-              if (err) {
-                reject(err)
-              }
-                resolve(res)
-        })
+//             , (err, res) => {
+//               if (err) {
+//                 reject(err)
+//               }
+//                 resolve(res)
+//         })
+//     })
+// },
+
+update: (data) => {
+  // console.log(title, ingredients, image, image_pub_id, image_url, image_secure_url, id,)
+  console.log('model', data)
+  return new Promise((resolve, reject) => {
+    db.query(`UPDATE recipes SET 
+    title = COALESCE ($1, title),
+    ingredients = COALESCE ($2, ingredients),
+    image = COALESCE ($3, image),
+    image_pub_id = COALESCE ($4, image_pub_id),
+    image_url = COALESCE ($5, image_url),
+    image_secure_url = COALESCE ($6, image_secure_url)
+    WHERE id = $7`,
+
+    [data.title, data.ingredients, data.image, data.image_pub_id, data.image_url, data.image_secure_url, data.id], (err, result) => {
+      if (err) {
+        reject(err)
+      } else {
+        resolve(result)
+      }
     })
+  })
 },
+
   // router destroy/delete
   destroy: (id) => {
     return new Promise ((resolve, reject) => {
