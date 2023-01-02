@@ -31,7 +31,10 @@
 
 <!-- About The Project -->
 ## About The Project
-RESTful API made with Node.js and Express.js for Mamarecipe App.
+Mamarecipe Backend is an API used for Mama Recipe. This API handles every functions in Food Recipes Application, such as:
+
+User : Register, login.
+Recipe : Insert new recipe, update, delete, like a recipe, save a recipe, and get list of recipe
 
 ### Built With
 This app was built with some technologies below:
@@ -115,10 +118,10 @@ Contributions are what make the open source community such an amazing place to b
 
 <!-- Related Projects -->
 ## Related Project
-:rocket: [`Mamarecipe (Frontend)`](https://github.com/brndnwjy/mamarecipe-app)
+:rocket: [`Mamarecipe (Frontend)`](https://github.com/alfatpololo/Mama-Recipe-Frontend-Deploy)
 
 <!-- :rocket: [`Mamarecipe Web Service`](https://dove-chat.herokuapp.com/) -->
 
-<!-- :rocket: [`Mamarecipe App Demo`](https://dove-chat-fe.vercel.app/login) -->
+<!-- :rocket: [`Mamarecipe App Demo`](https://mama-recipe-frontend.vercel.app/) -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
